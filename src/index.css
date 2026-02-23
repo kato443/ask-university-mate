@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --background: 40 30% 97%;
+    --foreground: 350 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 350 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 350 30% 12%;
+
+    --primary: 345 65% 30%;
+    --primary-foreground: 40 30% 97%;
+
+    --secondary: 40 35% 92%;
+    --secondary-foreground: 345 65% 30%;
+
+    --muted: 40 20% 94%;
+    --muted-foreground: 350 15% 45%;
+
+    --accent: 42 85% 50%;
+    --accent-foreground: 350 30% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 40 30% 97%;
+
+    --border: 40 18% 88%;
+    --input: 40 18% 88%;
+    --ring: 345 65% 30%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 345 65% 22%;
+    --sidebar-foreground: 40 25% 95%;
+    --sidebar-primary: 42 85% 50%;
+    --sidebar-primary-foreground: 350 30% 12%;
+    --sidebar-accent: 345 55% 30%;
+    --sidebar-accent-foreground: 40 25% 95%;
+    --sidebar-border: 345 55% 28%;
+    --sidebar-ring: 42 85% 50%;
+
+    /* Custom tokens - UCU Theme */
+    --gradient-primary: linear-gradient(135deg, hsl(345 65% 22%) 0%, hsl(345 55% 32%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(42 85% 45%) 0%, hsl(45 90% 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(345 65% 18%) 0%, hsl(345 55% 26%) 50%, hsl(340 50% 22%) 100%);
+    --shadow-soft: 0 4px 20px -4px hsl(350 30% 15% / 0.08);
+    --shadow-medium: 0 8px 30px -6px hsl(350 30% 15% / 0.12);
+    --shadow-card: 0 2px 12px -2px hsl(350 30% 15% / 0.06);
+  }
+
+  .dark {
+    --background: 345 30% 8%;
+    --foreground: 40 20% 95%;
+
+    --card: 345 28% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 345 28% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 42 70% 65%;
+    --primary-foreground: 345 30% 10%;
+
+    --secondary: 345 25% 18%;
+    --secondary-foreground: 40 20% 95%;
+
+    --muted: 345 25% 16%;
+    --muted-foreground: 350 12% 58%;
+
+    --accent: 42 80% 55%;
+    --accent-foreground: 345 30% 10%;
+
+    --destructive: 0 62.8% 45%;
+    --destructive-foreground: 40 30% 98%;
+
+    --border: 345 25% 20%;
+    --input: 345 25% 20%;
+    --ring: 42 70% 65%;
+
+    --sidebar-background: 345 35% 10%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 42 80% 55%;
+    --sidebar-primary-foreground: 345 30% 10%;
+    --sidebar-accent: 345 30% 16%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 345 28% 18%;
+    --sidebar-ring: 42 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-1;
+    box-shadow: var(--shadow-medium);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
